@@ -1,0 +1,68 @@
+{
+	"name": "scaffixer",
+	"displayName": "Scaffixer",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.46.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:scaffixer.component"
+	],
+	"main": "./out/index.js",
+	"contributes": {
+		"configuration": {
+			"title": "Scaffixer",
+			"properties": {
+				"scaffixer.templates": {
+					"type": "array",
+					"markdownDescription": "Setup your Scaffixer templates & prompts.\n\nExample: \n```json\n{\n    \"name\": \"React Component\",\n    \"description\": \"Create a new React component directory with SCSS module.\",\n    \"location\": \"/Users/steve/templates/scaffixer-react-component\",\n    \"prompts\": [\"Name\"]\n}\n```\n&nbsp;  \n- `name` [string] Displayed template name.\n- `location` [string] Absolute path to a single template directory.\n- `description` [string] (optional) Displayed description of template.\n- `prompts` [array of strings] Name of values to collect input for template, must match EJS names. "
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "scaffixer.component",
+				"title": "Scaffix"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "scaffixer.component",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^14.0.14",
+		"@types/vscode": "^1.46.0",
+		"@types/ejs": "^3.0.4",
+		"@types/fs-extra": "^9.0.1",
+		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"@typescript-eslint/parser": "^2.30.0",
+		"eslint": "^6.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	},
+	"dependencies": {
+		"ejs": "^3.1.3",
+		"fs-extra": "^9.0.1"
+	}
+}
