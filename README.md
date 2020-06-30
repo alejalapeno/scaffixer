@@ -4,6 +4,8 @@ Scaffixer enables a context shortcut for scaffolding out entire files and direct
 
 ![Select one of your templates](assets/selection-screenshot.png)
 
+![Create from templates](assets/component-demo.gif)
+
 ## Features
 
 ### EJS Templating
@@ -24,11 +26,9 @@ const <%= Name %> = (props) => {
 export default <%= Name %>;
 ```
 
-![Create from templates](assets/component-demo.gif)
-
 ### Custom Prompts
 
-Set the input prompts you'll need to replace 
+Set the values you'll need to replace in your EJS template and Scaffixer will collect inputs for them.
 
 ## Extension Settings
 

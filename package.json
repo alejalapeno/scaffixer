@@ -1,13 +1,24 @@
 {
 	"name": "scaffixer",
 	"displayName": "Scaffixer",
-	"description": "",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alejalapeno/scaffixer"
+	},
+	"icon": "assets/icon.png",
+	"description": "A context shortcut for scaffolding out entire files and directory trees for when snippets just aren't enough.",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.46.0"
 	},
 	"categories": [
+		"Snippets",
 		"Other"
+	],
+	"keywords": [
+		"scaffolding",
+		"templates",
+		"ejs"
 	],
 	"activationEvents": [
 		"onCommand:scaffixer.component"
