@@ -54,16 +54,14 @@ const getContents = async(filepath: string): Promise<AsyncGenerator<FileInfo, vo
 
 let userEngine;
 
-const engineEJS = (string: string, inputs: object): Promise<string> => {
-	const renderPromise = (string: string, inputs: object): Promise<string> => {
-		const options = {
-			async: true,
-		};
-		return render(string, inputs, options) as Promise<string>;
-	};
+const renderPromise = (string: string, inputs: object): Promise<string> => {
 	const options = {
 		async: true,
 	};
+	return render(string, inputs, options) as Promise<string>;
+};
+
+const engineEJS = (string: string, inputs: object): Promise<string> => {
 	return renderPromise(string, inputs).
 		catch((err) => {
 			window.showErrorMessage(`Template contains a variable that is missing from the prompts: ${err}`);
