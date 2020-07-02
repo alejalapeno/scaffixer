@@ -13,7 +13,7 @@ export const getPrompts = async(template: TemplateItem | undefined): Promise<Obj
 				}
 			});
 		};
-		let data = {};
+		let data: { [key: string]: string  } = {};
 		if(template.prompts) {
 			for await (const prompt of template.prompts) {
 				const reply = await showPrompt(prompt);
@@ -21,7 +21,7 @@ export const getPrompts = async(template: TemplateItem | undefined): Promise<Obj
 				if(reply === undefined) {
 					return undefined;
 				}
-				data = {...data, [prompt]: reply};
+				data[prompt] = reply;
 			}
 		}
 		return data;
