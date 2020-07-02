@@ -17,7 +17,7 @@ interface TemplatesSettings {
 }
 
 export function activate(context: ExtensionContext) {
-	let disposable = commands.registerCommand('scaffixer.component', async({path: outputPath}) => {
+	let disposable = commands.registerCommand('scaffixer.context', async({path: outputPath}) => {
 		try {
 			const {templates} = workspace.getConfiguration('scaffixer') as UserSettings;
 			const template = await getTemplate(templates);
