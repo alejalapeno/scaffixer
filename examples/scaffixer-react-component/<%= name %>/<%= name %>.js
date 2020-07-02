@@ -1,15 +1,15 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import styles from './<%= name %>.module.scss';
+import styles from './<%= Name %>.module.scss';
 
-const <%= name %> = () => {
+const <%= Name %> = () => {
 	return (
 		<>
 		</>
 	);
 }
 
-<%= name %>.propTypes = {
+<%= Name %>.propTypes = {
 };
 
-export default <%= name %>;
+export default <%= Name %>;

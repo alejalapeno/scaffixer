@@ -4,13 +4,13 @@ interface TemplatesSettings {
 	name: string,
 	location: string,
 	description?: string,
-	prompts?: Array<string>,
+	prompts?: string[],
 }
 
 export class TemplateItem implements QuickPickItem {
 	public label: string;
 	public location: string;
-	public prompts?: Array<string>;
+	public prompts?: string[];
 	public detail?: string;
 	constructor({name = '', location, description, prompts}: TemplatesSettings) {
 		this.label = name;
@@ -20,7 +20,7 @@ export class TemplateItem implements QuickPickItem {
 	}
 }
 
-export const getTemplate = (templates: Array<TemplatesSettings> | undefined) => {
+export const getTemplate = (templates: TemplatesSettings[] | undefined) => {
 	if(templates) {
 		return new Promise<TemplateItem | undefined>((resolve) => {
 			const input = window.createQuickPick<TemplateItem>();

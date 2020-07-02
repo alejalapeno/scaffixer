@@ -7,7 +7,9 @@
 	},
 	"icon": "assets/icon.png",
 	"description": "A context shortcut for scaffolding out entire files and directory trees for when snippets just aren't enough.",
-	"version": "0.0.1",
+	"version": "0.0.2",
+	"license": "MIT",
+	"publisher": "alejalapeno",
 	"engines": {
 		"vscode": "^1.46.0"
 	},
@@ -21,7 +23,7 @@
 		"ejs"
 	],
 	"activationEvents": [
-		"onCommand:scaffixer.component"
+		"onCommand:scaffixer.context"
 	],
 	"main": "./out/index.js",
 	"contributes": {
@@ -30,20 +32,20 @@
 			"properties": {
 				"scaffixer.templates": {
 					"type": "array",
-					"markdownDescription": "Setup your Scaffixer templates & prompts.\n\nExample: \n```json\n{\n    \"name\": \"React Component\",\n    \"description\": \"Create a new React component directory with SCSS module.\",\n    \"location\": \"/Users/steve/templates/scaffixer-react-component\",\n    \"prompts\": [\"Name\"]\n}\n```\n&nbsp;  \n- `name` [string] Displayed template name.\n- `location` [string] Absolute path to a single template directory.\n- `description` [string] (optional) Displayed description of template.\n- `prompts` [array of strings] Name of values to collect input for template, must match EJS names. "
+					"markdownDescription": "Setup your Scaffixer templates & prompts.\n\nExample: \n```json\n{\n    \"name\": \"React Component\",\n    \"description\": \"Create a new React component directory with SCSS module.\",\n    \"location\": \"/Users/steve/templates/scaffixer-react-component\",\n    \"prompts\": [\"Name\"]\n}\n```\n&nbsp;  \n- `name` [string] Displayed template name.\n- `location` [string] Absolute path to a template directory or file. If a directory only the contents will be Scaffixed, if you want the directory included in the template it must be nested.\n- `description` [string] (optional) Displayed description of template.\n- `prompts` [array of strings] Name of values to collect input for template, must match EJS names. "
 				}
 			}
 		},
 		"commands": [
 			{
-				"command": "scaffixer.component",
+				"command": "scaffixer.context",
 				"title": "Scaffix"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "scaffixer.component",
+					"command": "scaffixer.context",
 					"group": "navigation"
 				}
 			]
