@@ -46,3 +46,20 @@ example:
 }
 ```
 
+### Custom Functions
+
+An `ejs_helpers.js` file can be created in the template location. Any functions/parameters exported by it can be used in templates like: `<%= _.toUpper(Name)`
+
+example:
+```js
+const {
+  pascalCase,
+} = require("change-case");
+
+module.exports = {
+  pascalCase,
+	toUpper: function(value) {
+		return value.toUpperCase()
+	}
+};
+```

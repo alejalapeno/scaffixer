@@ -1,5 +1,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
+import * as path from 'path';
 import {commands, workspace, ExtensionContext} from 'vscode';
 import {getTemplate} from './getTemplate';
 import {getPrompts} from './getPrompts';
@@ -25,11 +26,12 @@ export function activate(context: ExtensionContext) {
 
 			// Only scaffix if prompts weren't canceled.
 			if(inputData !== undefined) {
-				template && scaffix(
-						template.location, 
-						inputData, 
-						outputPath
-					);
+				template &&
+          scaffix(
+            path.resolve(workspace.workspaceFolders![0].uri.path, template.location),
+            inputData,
+            outputPath
+          );
 			}
 		} catch (err) {
 			throw new Error(`Scaffixer Error: ${err}`);
